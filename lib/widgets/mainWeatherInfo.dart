@@ -46,10 +46,10 @@ class MainWeatherInfo extends StatelessWidget {
                         FittedBox(
                           child: Text(
                             weatherProv.isCelsius
-                                ? weatherProv.weather!.temp.toStringAsFixed(1)
-                                : weatherProv.weather!.temp
+                                ? weatherProv.weather?.temp.toStringAsFixed(1) ?? ''
+                                : weatherProv.weather?.temp
                                     .toFahrenheit()
-                                    .toStringAsFixed(1),
+                                    .toStringAsFixed(1)  ?? '',
                             style: boldText.copyWith(fontSize: 86),
                           ),
                         ),
@@ -64,7 +64,7 @@ class MainWeatherInfo extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    weatherProv.weather!.description.toTitleCase(),
+                    weatherProv.weather?.description.toTitleCase() ?? '',
                     style: lightText.copyWith(fontSize: 16),
                   )
                 ],
@@ -74,7 +74,7 @@ class MainWeatherInfo extends StatelessWidget {
               height: 148.0,
               width: 148.0,
               child: Image.asset(
-                getWeatherImage(weatherProv.weather!.weatherCategory),
+                getWeatherImage(weatherProv.weather?.weatherCategory ?? 'clouds'),
                 fit: BoxFit.cover,
               ),
             ),

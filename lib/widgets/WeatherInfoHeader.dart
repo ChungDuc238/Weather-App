@@ -32,12 +32,12 @@ class WeatherInfoHeader extends StatelessWidget {
                           child: RichText(
                             textAlign: TextAlign.start,
                             text: TextSpan(
-                              text: weatherProv.weather!.city + ', ',
+                              text:  '${weatherProv.weather?.city}, ',
                               style: semiboldText,
                               children: [
                                 TextSpan(
                                   text: Country.tryParse(
-                                          weatherProv.weather!.countryCode)
+                                      weatherProv.weather?.countryCode ?? 'hanoi')
                                       ?.name,
                                   style: regularText.copyWith(fontSize: 18.0),
                                 ),
